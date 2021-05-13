@@ -1,8 +1,40 @@
-import http from 'http';
+import express from 'express';
+import { graphqlHTTP } from 'express-graphql';
+import { buildSchema } from 'graphql';
 
-http.createServer(function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello World!\n');
-}).listen(8000);
+// Create a server
+const app = express();
 
-console.log('Server in http://127.0.0.1:8000/');
+// Create a schema and a root resolver
+const schema = buildSchema(`
+    type Book {
+        title: String!
+        author: String!
+    }
+
+    type Query {
+        books: [Book]
+    }
+`);
+
+const rootValue = {
+  books: [
+    {
+      title: "The Name of the Wind",
+      author: "Patrick Rothfuss",
+    },
+    {
+      title: "The Wise Man's Fear",
+      author: "Patrick Rothfuss",
+    }
+  ]
+};
+
+// Use those to handle incoming requests
+app.use(graphqlHTTP({
+  schema,
+  rootValue,
+}));
+
+// Start the server
+app.listen(8080, () => console.log("Server started on port 8080"));
