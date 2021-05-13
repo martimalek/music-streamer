@@ -1,7 +1,7 @@
 {
   "name": "music-streamer",
   "version": "1.0.0",
-  "description": "Server that gets music from yt or spotify via youtube-dland then streams it via sockets",
+  "description": "Server that gets music from yt or spotify via youtube-dl and then streams it via sockets",
   "main": "index.ts",
   "scripts": {
     "start": "npm run build && node build/index.js",
