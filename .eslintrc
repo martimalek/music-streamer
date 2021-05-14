@@ -11,5 +11,25 @@
   ],
   "rules": {
     "no-console": 1
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.tsx", "*.ts", "*.jsx", "*.js"],
+      "processor": "@graphql-eslint/graphql"
+    },
+    {
+      "files": ["*.graphql"],
+      "parser": "@graphql-eslint/eslint-plugin",
+      "plugins": ["@graphql-eslint"],
+      "rules": {
+        "graphql/named-operations": 2, // requires each operation to be named
+        "graphql/capitalized-type-name": 2, // requires each type name is capitalizewd
+        "graphql/no-deprecated-fields": 2, // disallows use of deprecated fields
+        "graphql/template-strings": ["error", {
+          "env": "literal",
+          "tagName": "gql"
+        }]
+      }
+    }
+  ]
 }
