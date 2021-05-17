@@ -18,6 +18,6 @@ export class YouTubeDLAudioDownloader implements AudioDownloader {
             o: FILES_PATH + '%(title)s.%(ext)s',
         });
 
-        return `${title}.${AUDIO_FORMAT}`;
+        return `${FILES_PATH}${title}.${AUDIO_FORMAT}`;
     }
 }

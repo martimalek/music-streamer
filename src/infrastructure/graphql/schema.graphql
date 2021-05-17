@@ -4,5 +4,5 @@ type Book {
 }
 
 type Query {
-    audioFromUrl(url: String!): String!    
+    getAudioFromUrl(url: String!): String!    
 }
