@@ -5,7 +5,7 @@ import { AudioRepository } from './AudioRepository';
 export class AudioFromUrlGetterService {
     constructor(
         private readonly audioRepository: AudioRepository,
-    ) { }
+    ) {}
 
     execute = async (url: string): Promise<Audio> => {
         let audio = await this.audioRepository.findByUrl(url);
@@ -13,9 +13,9 @@ export class AudioFromUrlGetterService {
         if (!audio) {
             // There is no audio, it should try to download it 
             // and create a new entry in db
-
+            console.log('THERE IS NO AUDIO');
             audio = Audio.create({ id: Uuid.random(), url });
-        }
+        } else console.log('THERE IS AUDIO');
 
         return audio;
     }

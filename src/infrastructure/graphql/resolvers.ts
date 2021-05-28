@@ -1,11 +1,11 @@
 import { IResolvers } from 'graphql-tools';
 
-import { fromUrlDownloader } from './dependencies';
+import { audioFromUrlGetter } from './dependencies';
 
 export const resolvers: IResolvers = {
     Query: {
         async getAudioFromUrl(_, { url }) {
-            const audio = await fromUrlDownloader.execute(url);
+            const audio = await audioFromUrlGetter.execute(url);
 
             return audio;
 

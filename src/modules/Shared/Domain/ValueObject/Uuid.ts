@@ -1,4 +1,4 @@
-import UUID from 'uuid';
+import { v4 } from 'uuid';
 import { InvalidUuid } from '../Errors/InvalidUuid';
 import { StringValueObject } from './StringValueObject';
 
@@ -17,6 +17,6 @@ export class Uuid extends StringValueObject {
     }
 
     public static random(): Uuid {
-        return new Uuid(UUID.v4());
+        return new Uuid(v4());
     }
 }
