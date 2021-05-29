@@ -8,5 +8,5 @@
               ".git",
               "node_modules"
             ],
-	"exec": "node -r tsconfig-paths/register -r ts-node/register ./src/index.ts"
+	"exec": "node -r tsconfig-paths/register -r ts-node/register -r dotenv/config ./src/index.ts"
 }
