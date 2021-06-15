@@ -14,6 +14,7 @@ export class AudioFromUrlGetterService {
             // There is no audio, it should try to download it 
             // and create a new entry in db
             console.log('THERE IS NO AUDIO');
+            // TODO: Create subscriber that creates audio in DB on Audio created
             audio = Audio.create({ id: Uuid.random(), url });
         } else console.log('THERE IS AUDIO');
 
